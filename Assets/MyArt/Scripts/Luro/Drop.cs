@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class Drop : MonoBehaviour, IDropHandler
 {
     public string akzeptiertesObjekt; 
-    private int correctItems = 0; 
-    private int totalItems = 3; 
 
     private Image dropZoneImage; 
     private Color originalColor; 
@@ -32,14 +30,15 @@ public class Drop : MonoBehaviour, IDropHandler
             
             fallenGelassen.transform.SetParent(transform);
             fallenGelassen.transform.position = transform.position;
-            correctItems++;
-
             
-            if (correctItems == totalItems)
+            if (WinScreen.Instance != null)
             {
-                
+                WinScreen.Instance.AddCorrectItem();
             }
-
+            else
+            {
+                Debug.LogError("WinScreen instance not found!");
+            }
             if (dropZoneImage != null)
             {
                 dropZoneImage.color = Color.green; 
