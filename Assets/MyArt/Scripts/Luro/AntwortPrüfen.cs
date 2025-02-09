@@ -6,13 +6,13 @@ using TMPro;
 
 public class CheckAnswer : MonoBehaviour
 {
-    public TMP_InputField TMP_InputField;  // Das Eingabefeld
-    public TMP_Text feedbackText;      // Text zur Anzeige der Rückmeldung
-    public string correctAnswer = "Unity"; // Die richtige Antwort
+    public TMP_InputField TMP_InputField;  
+    public TMP_Text feedbackText;      
+    public string correctAnswer = "Oida grantler"; 
 
     public void CheckInput()
     {
-        if (TMP_InputField.text.Trim().ToLower() == correctAnswer.ToLower()) // Vergleicht die Antwort (unabhängig von Groß-/Kleinschreibung)
+        if (TMP_InputField.text.Trim().ToLower() == correctAnswer.ToLower()) 
         {
             feedbackText.text = "Richtig!";
             feedbackText.color = Color.green;
